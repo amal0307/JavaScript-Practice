@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="radio" id="size1" name="size">Small 
+        <input type="radio" id="size2" name="size">Medium
+        <input type="radio" id="size3" name="size">Large
+        <br>
+        <br>
+        <input type="checkbox" id="topping1" name="topping">Pepperoni
+        <input type="checkbox" id="topping2" name="topping">Mushrooms
+        <input type="checkbox" name="topping" id="topping3">Olives
+        <br>
+        <br>
+        <button type="submit" onclick="order()">View Pizza</button>
+        <br>
+        <br>
+        <h2 id="view"></h2>
+        <script>
+            function order(){
+                let size=document.getQuerySelector('input[name="size"]:checked').value;
+                let toppings="";
+                let checkbox=document.querySelectorAll('input[type="checkbox"]:checked').value
+            for(let i=0;i<checkbox.length;i++)
+        {
+                toppings+=checkbox[i].value+" ";
+        }          }
+        document.getElementById('view').textContent="Pizza with size "+size+" and with toppings: "+toppings;
+        </script>
+
+    </div>
+</body>
+</html>

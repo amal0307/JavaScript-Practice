@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Multiplication Table</legend>
+        <input type="number" id="num" placeholder="Enter a number">
+        <button onclick="generateTable()">Generate</button>
+    </fieldset>
+    <br>
+    <table border="1" id="table"></table>
+
+    <script>
+        function generateTable() {
+            let num = document.getElementById("num").value;
+            let table = "";
+            for (let i = 1; i <= 10; i++) {
+                table += `<tr><td>${i} x ${num}</td><td>${i * num}</td></tr>`;
+            }
+            document.getElementById("table").innerHTML = table;
+        }
+    </script>
+</body> 
+</html>

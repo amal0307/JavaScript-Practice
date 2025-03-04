@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing App</title>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="300" style="border:1px solid black;"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+        let drawing = false;
+
+        canvas.onmousedown = () => drawing = true;
+        canvas.onmouseup = () => drawing = false;
+        canvas.onmousemove = e => {
+            if (!drawing) return;
+            ctx.fillRect(e.offsetX, e.offsetY, 5, 5);
+        };
+    </script>
+</body>
+</html>

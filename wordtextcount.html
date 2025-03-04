@@ -1,0 +1,30 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        <body>
+            <textArea id="text" placeholder="Enter some text"></textArea>
+            <h4 id="wordcount"></h4>
+            <h4 id="charcount"></h4>
+            <script>
+                //let text=document.getElementById('text').value;
+                let wordcount=0;
+                let charcount=0;
+                document.getElementById('text').addEventListener('input',function(){
+                    let text=document.getElementById('text').value.trim();
+                    wordcount=text.split(" ").length;
+                    charcount=text.length;
+                    if(charcount>200){
+                        alert("You have exceeded the character limit");
+                        
+                    }
+                    document.getElementById('wordcount').textContent="Word Count: "+wordcount;
+                    document.getElementById('charcount').textContent="Character Count: "+charcount;
+                    
+                })
+            </script>
+        </body>
+        </html>
