@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="press">Press any key</h1>
+    <script>
+        document.addEventListener('keydown',function(event){
+        let keypress=event.key;
+        if(keypress==" "){
+            document.getElementById('press').textContent="You presses space";
+        }
+        else{
+            document.getElementById('press').textContent="You pressed "+keypress;
+        }});
+    </script>
+</body>
+</html>

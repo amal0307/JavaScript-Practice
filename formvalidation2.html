@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label>Name: <input type="text" id="name" placeholder="Enter your name"></label>
+        <h5 id="nameError"></h5>
+
+        <label>Email: <input type="email" id="email" placeholder="Enter your email"></label>
+        <h5 id="emailError"></h5>
+
+        <label>Password: <input type="password" id="password" placeholder="Enter your password"></label>
+        <h5 id="passwordError"></h5>
+
+        <button id="submitBtn">Submit</button>
+    </div>
+
+    <script>
+        function validate() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+
+            if (name === "") {
+                document.getElementById('nameError').textContent = "Name Required!";
+            } else {
+                document.getElementById('nameError').textContent = "";
+            }
+
+            if (!email.includes('@') || !email.includes(".com")) {
+                document.getElementById('emailError').textContent = "Invalid Email!";
+            } else {
+                document.getElementById('emailError').textContent = "";
+            }
+
+            if (password.length < 8 || !/[A-Z]/.test(password) || !/\d/.test(password)) {
+                document.getElementById('passwordError').textContent = "Password should be 8+ char, 1 Uppercase required and 1 number required";
+            } else {
+                document.getElementById('passwordError').textContent = "";
+            }
+        }
+
+        // Adding event listeners for real-time validation
+        document.getElementById("name").addEventListener("input", validate);
+        document.getElementById("email").addEventListener("input", validate);
+        document.getElementById("password").addEventListener("input", validate);
+
+        // Adding event listener for submit button
+        document.getElementById("submitBtn").addEventListener("click", validate);
+    </script>
+</body>
+</html>

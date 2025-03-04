@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=prompt("Enter first number");
+        let b=prompt("Enter second number");
+        let num1=a;
+        let num2=b;
+        while(b!==0){
+            let temp=b;
+            b=a%b;
+            a=temp;
+        }
+        let prod=Math.abs(num1*num2);
+        let lcm=prod/a;
+        console.log("LCM is "+lcm);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Dynamic Table Creator</h2>
+    
+    <input type="number" id="rows" placeholder="Number of rows">
+    <input type="number" id="cols" placeholder="Number of columns">
+    <button onclick="createTable()">Generate Table</button>
+    
+    <div id="tableContainer"></div>
+
+    <script>
+        function createTable() {
+            let rows = document.getElementById('rows').value;
+            let cols = document.getElementById('cols').value;
+            let container = document.getElementById('tableContainer');
+            
+            container.innerHTML = '';
+            let table = document.createElement('table');
+            
+            for(let i = 0; i < rows; i++) {
+                let row = table.insertRow();
+                for(let j = 0; j < cols; j++) {
+                    let cell = row.insertCell();
+                    cell.innerHTML = `Cell ${i},${j}`;
+                }
+                let deleteCell = row.insertCell();
+                let deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML = 'Delete Row';
+                deleteBtn.onclick = function() {
+                    row.remove();
+                };
+                deleteCell.appendChild(deleteBtn);
+            }
+            
+            container.appendChild(table);
+        }
+    </script>
+</body>
+</html>

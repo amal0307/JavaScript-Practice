@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=prompt("Enter a string");
+        let b=[];
+        let c=[];
+        let aa=a.split('');
+        for(let i=0;i<aa.length;i++){
+            b.push(aa[i]);
+        }
+        for(let j=aa.length-1;j>=0;j--){
+            c.push(aa[j]);
+        }
+        if(b.join()==c.join()){
+            console.log("Palindrome");
+        }
+        else{
+            console.log("Not palindrome");
+        }
+    </script>
+</body>
+</html>

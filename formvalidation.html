@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+
+    <h2>Sign Up</h2>
+
+    <label>Name: <input type="text" id="name"></label>
+    <span id="nameError"></span><br><br>
+
+    <label>Email: <input type="email" id="email"></label>
+    <span id="emailError"></span><br><br>
+
+    <label>Password: <input type="password" id="password"></label>
+    <span id="passwordError"></span><br><br>
+
+    <button onclick="validate()">Sign Up</button>
+
+    <script>
+        function validate() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if (name === "") {
+                document.getElementById("nameError").textContent = "Name required";
+            } else {
+                document.getElementById("nameError").textContent = "";
+            }
+
+            if (!email.includes("@")) {
+                document.getElementById("emailError").textContent = "Invalid email";
+            } else {
+                document.getElementById("emailError").textContent = "";
+            }
+
+            if (password.length < 8 || !/[A-Z]/.test(password) || !/\d/.test(password)) {
+                document.getElementById("passwordError").textContent = "Password: 8+ chars, 1 uppercase, 1 number";
+            } else {
+                document.getElementById("passwordError").textContent = "";
+            }
+
+            if (name !== "" && email.includes("@") && password.length >= 8 && /[A-Z]/.test(password) && /\d/.test(password)) {
+                alert("Sign-up successful!");
+            }
+        }
+    </script>
+
+</body>
+</html>
